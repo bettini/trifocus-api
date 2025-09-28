@@ -1,8 +1,13 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
+using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add Key Vault configuration
+string keyVaultUrl = "https://trifocus-kv.vault.azure.net/";
+builder.Configuration.AddAzureKeyVault(new Uri(keyVaultUrl), new DefaultAzureCredential());
 
 // Add services to the container.
 builder.Services.AddCors(options =>
