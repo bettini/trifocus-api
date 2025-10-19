@@ -2,13 +2,13 @@ trigger:
   - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: Default
 
 steps:
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    version: '9.0.305'
+    version: '9.0.306'
 
 - script: dotnet build --configuration Release
   displayName: 'Build project'
